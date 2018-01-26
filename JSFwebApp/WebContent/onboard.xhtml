@@ -1,0 +1,84 @@
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">>
+
+	<ui:define name="content">
+		<h:form id="onboardForm" enctype="multipart/form-data">
+			<h:message for="onboardForm" />
+			<h:panelGrid columns="3" styleClass="form">
+				<f:facet name="header">
+					<h:outputText value="#{msg['onboard']}" />
+				</f:facet>
+
+				<h:outputLabel value="" styleClass="label" />
+				<h:inputText id="name" label="#{msg['cheetah.name']}"
+					styleClass="field" pt:placeholder="#{msg['cheetah.name']}"
+					value="#{onboardController.cheetah.name}"
+					validator="#{onboardController.isName}"
+					validatorMessage="#{msg['error.name']}!" for="name" />
+				<h:panelGroup styleClass="messageContainer">
+					<h:message styleClass="message" for="name" />
+				</h:panelGroup>
+
+				<h:outputLabel value="" styleClass="label" />
+				<h:inputText id="phone" label="#{msg['cheetah.phone']}"
+					styleClass="field" pt:placeholder="#{msg['cheetah.phone']}"
+					value="#{onboardController.cheetah.phone}"
+					validator="#{onboardController.isPhone}"
+					validatorMessage="#{msg['error.phone']}!" for="phone" />
+				<h:panelGroup styleClass="messageContainer">
+					<h:message styleClass="message" for="phone" />
+				</h:panelGroup>
+
+				<h:outputLabel value="" styleClass="label" />
+				<h:inputText id="email" label="#{msg['cheetah.email']}"
+					styleClass="field" pt:placeholder="#{msg['cheetah.email']}"
+					value="#{onboardController.cheetah.email}"
+					validator="#{onboardController.isEmail}"
+					validatorMessage="#{msg['error.email']}!" for="email" />
+				<h:panelGroup styleClass="messageContainer">
+					<h:message styleClass="message" for="email" />
+				</h:panelGroup>
+
+				<h:outputLabel value="" styleClass="label" />
+				<h:inputText id="address" label="#{msg['cheetah.address']}"
+					styleClass="field" pt:placeholder="#{msg['cheetah.address']}"
+					value="#{onboardController.cheetah.address}"
+					validator="#{onboardController.isAddress}"
+					validatorMessage="#{msg['error.address']}!" for="address" />
+				<h:panelGroup styleClass="messageContainer">
+					<h:message styleClass="message" for="address" />
+				</h:panelGroup>
+
+				<h:outputLabel value="" styleClass="label" />
+				<h:inputText id="birthday" label="#{msg['cheetah.birthday']}"
+					styleClass="field" pt:placeholder="#{msg['cheetah.birthday']}"
+					value="#{onboardController.cheetah.birthday}"
+					validator="#{onboardController.isBirthday}"
+					validatorMessage="#{msg['error.birthday']}!" for="birthday" />
+				<h:panelGroup styleClass="messageContainer">
+					<h:message styleClass="message" for="birthday" />
+				</h:panelGroup>
+
+				<h:outputLabel value="" styleClass="label" />
+				<h:inputFile id="photo" value="#{onboardController.part}" >
+				<f:validateRequired for="photo"/>
+				</h:inputFile>
+				<h:outputLabel value="" styleClass="label" />
+
+				<f:facet name="footer">
+					<h:panelGroup styleClass="buttonContainer">
+						<h:commandButton id="onboard" styleClass="button"
+							action="#{onboardController.persist(signinController)}"
+							value="#{msg['onboard']}" />
+						<h:message for="onboard" />
+					</h:panelGroup>
+				</f:facet>
+				
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>

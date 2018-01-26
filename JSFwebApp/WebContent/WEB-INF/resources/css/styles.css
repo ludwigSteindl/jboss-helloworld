@@ -1,0 +1,96 @@
+* {
+	font-family: sans-serif;
+	padding: 9px;
+	color: gray;
+}
+
+body>header {
+	background: url("#{resource['img:logo.png']}");
+	background-repeat: no-repeat;
+	background-position: right 40px center;
+
+	border-radius: 10px;
+	box-shadow: 5px 5px 9px gray;
+	height: 200px;
+	margin-bottom: 50px;
+}
+
+body>footer {
+	margin-top: 20px;
+}
+
+body {
+}
+
+
+a {
+	color: black;
+	text-decoration: none;
+	
+}
+
+a:hover, .title {
+	color: gray;
+	text-shadow: 0 0 10px white, 0 0 20px white;
+}
+
+input:not ([type="image"] ), textarea {
+	width: 300px;
+}
+
+label {
+	display: block;
+	text-align: right;
+}
+
+.form {
+	margin: 0 auto;
+}
+
+.messageContainer {
+	text-align: left;
+	min-width: 200px;
+	display: block;
+}
+
+.message {
+	color: red;
+	
+}
+
+.label {
+	min-width: 200px;
+}
+
+.button {
+	min-width: 200px;
+}
+
+.smallbutton {
+	min-width: 100px;
+}
+
+.field {
+	width: 300px;
+}
+
+.searchfield {
+	width: 600px;
+}
+
+.buttonContainer {
+	text-align: center;
+	display: block;
+}
+
+.smallbuttonContainer {
+	text-align: center;
+	
+	margin: 0px 0px;
+}
+
+
+th {
+	text-align: center;
+}
+.

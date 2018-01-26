@@ -1,0 +1,57 @@
+<ui:composition template="/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+	<ui:define name="content">
+		<h:form id="signinForm" prependId="false">
+			<h:message for="signinForm" showSummary="true" />
+			<h:panelGrid columns="3" styleClass="form">
+				<f:facet name="header">
+					<h:outputText value="#{msg['signin']}" />
+				</f:facet>
+
+				<f:event listener="#{signinController.isAlreadyRegistered}"
+					type="postValidate" />
+
+				<h:outputLabel value="" styleClass="label" />
+				<h:inputText id="email" label="#{msg['email']}" styleClass="field"
+					pt:placeholder="#{msg['email']}" value="#{signinController.email}"
+					validator="#{signinController.isEmail}"
+					validatorMessage="#{msg['error.email']}!" for="email" />
+				<h:panelGroup styleClass="messageContainer" id="emailError">
+					<h:message styleClass="message" for="email" />
+				</h:panelGroup>
+
+				<h:outputLabel value="" styleClass="label" />
+				<h:inputSecret id="password" label="#{msg['password']}"
+					pt:placeholder="#{msg['password']}" styleClass="field"
+					value="#{signinController.password}"
+					validator="#{signinController.isPassword}"
+					validatorMessage="#{msg['error.password']}!" for="password" />
+				<h:panelGroup styleClass="messageContainer">
+					<h:message styleClass="message" for="password" />
+				</h:panelGroup>
+
+				<h:panelGroup />
+				<h:panelGroup>
+					<h:outputText value="#{msg['yetRegistered']}" />
+					<h:link outcome="register" value="#{msg['registerHere']}" />
+				</h:panelGroup>
+
+				<f:facet name="footer">
+					<h:panelGroup styleClass="buttonContainer">
+						<h:commandButton id="signin" styleClass="button"
+							action="#{signinController.persist()}"
+							value="#{msg['signin']}" />
+						<h:message for="signin" />
+					</h:panelGroup>
+				</f:facet>
+
+
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
