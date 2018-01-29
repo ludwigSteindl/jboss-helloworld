@@ -7,25 +7,25 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <f:view locale="#{localeController.lang}">
-	<f:loadBundle basename="com.gepardec.properties.messages" var="msg" />
+<f:loadBundle basename="com.gepardec.properties.messages" var="msg" />
 
-	<h:head>
-		<title><h:outputText value="#{msg['title']}" /></title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<h:outputStylesheet library="css" name="styles.css" />
-	</h:head>
-	<h:body>
-		<h:messages globalOnly="true" />
+<h:head>
+	<title><h:outputText value="#{msg['title']}" /></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+<h:body>
+	<h:messages globalOnly="true" />
 
-		<ui:insert name="header">
-			<ui:include src="header.xhtml" />
-		</ui:insert>
+	<ui:insert name="header">
+		<ui:include src="header.xhtml" />
+	</ui:insert>
 
-		<ui:insert name="content"></ui:insert>
+	<ui:insert name="content"></ui:insert>
 
-		<ui:insert name="footer">
-			<ui:include src="footer.xhtml" />
-		</ui:insert>
-	</h:body>
+	<ui:insert name="footer">
+		<ui:include src="footer.xhtml" />
+	</ui:insert>
+</h:body>
 </f:view>
 </html>

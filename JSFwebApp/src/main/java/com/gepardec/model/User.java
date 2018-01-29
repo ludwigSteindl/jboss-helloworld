@@ -6,9 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 //import javax.persistence.NamedQuery;
 //import javax.persistence.SequenceGenerator;
 //import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 //@Table(schema="PUBLIC")
@@ -21,10 +24,16 @@ public class User implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	@NotNull
+	@Min(value=6)
+	@Max(value=40)
 	private String email;
+	
+	@NotNull
+	@Min(value=4)
+	@Max(value=8)
 	private String password;
 
-	
 	
 	public Long getId() {
 		return this.id;	

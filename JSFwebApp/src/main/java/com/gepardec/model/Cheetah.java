@@ -12,6 +12,8 @@ import javax.persistence.Lob;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 @Entity
 @Table(schema="PUBLIC", name="CHEETAH")
@@ -34,10 +36,14 @@ public class Cheetah implements Serializable {
 			)
 	private Long id;
 	
+	
 	private String name;
 	private String phone;
 	private String email;
 	private String address;
+	
+	@NotNull
+	@Past
 	private String birthday;
 	
 	@Basic(fetch=FetchType.LAZY)

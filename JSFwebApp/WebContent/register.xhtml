@@ -22,9 +22,9 @@
 				<h:outputLabel value="" styleClass="label" />
 				<h:inputText id="email" label="#{msg['email']}" styleClass="field"
 					pt:placeholder="#{msg['email']}"
-					value="#{registerController.user.email}"
-					validator="#{registerController.isEmail}"
-					validatorMessage="#{msg['error.email']}!" for="email" />
+					value="#{registerController.user.email}">
+					<f:validator validatorId="emailValidator" />
+				</h:inputText>
 				<h:panelGroup styleClass="messageContainer">
 					<h:message styleClass="message" for="email" />
 				</h:panelGroup>
